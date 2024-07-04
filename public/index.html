@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer async></script>
+</head>
+<body>
+    <section class="historique show " id="historique" >
+        <div class="titre">Historique : </div>
+        <div class="list" id="listHistorique">
+            
+        </div>
+    </section>
+    <section class="calcul max" id="calcul">
+            <div class="container affichage">
+                <div>
+                    <img onclick="showHistorique('historique','calcul');" src="/ico/icons8-github-basic-outline-32.png" alt="historique" srcset="">
+                    <a href="#"><img src="/ico/icons8-github-basic-outline-32.png" alt="github" srcset=""></a>
+                    <img src="/ico/icons8-github-basic-outline-32.png" alt="setting" srcset="">
+                </div>
+                <input type="text" inputmode="none" class="expression" id="expression" />
+                <input type="number" class="evaluation" id="evaluation" disabled />
+            </div>
+            <div class="container container-button ">
+                <div>
+                    <button class="ac" onclick="remplisage(event,this.id);" id="AC" ><p>AC</p></button>
+                    <button onclick="remplisage(event,this.id);" id="paranthèse" ><p>()</p></button>
+                    <button onclick="remplisage(event,this.id);" id="pourcentage" ><p>%</p></button>
+                    <button onclick="remplisage(event,this.id);" id="division" ><p>&div;</p></button>
+                </div>
+                <div>
+                    <button onclick="remplisage(event,this.id);" id="sept" >7</button>
+                    <button onclick="remplisage(event,this.id);" id="huit" >8</button>
+                    <button onclick="remplisage(event,this.id);" id="neuf" >9</button>
+                    <button onclick="remplisage(event,this.id);" id="multiplication" >*</button>
+                </div>
+                <div>
+                    <button onclick="remplisage(event,this.id);" id="quatre" >4</button>
+                    <button onclick="remplisage(event,this.id);" id="cinq" >5</button>
+                    <button onclick="remplisage(event,this.id);" id="six" >6</button>
+                    <button onclick="remplisage(event,this.id);" id="soustraction" >-</button>
+                </div>
+                <div>
+                    <button onclick="remplisage(event,this.id);" id="un" >1</button>
+                    <button onclick="remplisage(event,this.id);" id="deux" >2</button>
+                    <button onclick="remplisage(event,this.id);" id="trois" >3</button>
+                    <button onclick="remplisage(event,this.id);" id="addition" >+</button>
+                </div>
+                <div>
+                    <button onclick="remplisage(event,this.id);" id="zero" >0</button>
+                    <button onclick="remplisage(event,this.id);" id="virgule" >,</button>
+                    <button onclick="remplisage(event,this.id);" id="supprimer" >&DoubleLeftArrow;</button>
+                    <button  class="equals" onclick="remplisage(event,this.id);" id="egal" href="/enregistrer" >=</button>
+                </div>
+            </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,188 @@
+// Définition couleur
+$primaryColor : #242424;
+$ButtonOne : #2e2e2e;
+$ButtonSecond : #003f72 ;
+$ButtonThree :  #0062b3; 
+$ButtonReinitial : #007523;
+$font-color : #dfdfdf;
+
+// font-size
+$sizeOne : 40px;
+$sizeTwoo : 33px; 
+$sizeThree : 24px;
+
+// Définition taille
+$heightHistorique : 30vh;
+$heightAffichage : 30vh;
+
+// animation pour le remplissage
+@keyframes animationRipplie {
+    0% {
+        opacity: 1;
+        width: 10px;
+        height: 10px;
+    }
+    10% {
+        opacity: 0.9;
+        width: 30px;
+        height: 30px;
+    }
+    50%{
+        opacity: 0.5;
+        width: 150px;
+        height: 150px;
+    }
+    100%{
+        opacity: 0;
+        width: 300px;
+        height:300px;
+    }
+}
+*{
+    padding : 0;
+    margin: 0;
+    color: $font-color;
+    font-family: "Inter",sans-serif;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: $ButtonOne;
+}
+
+body{
+    background: $primaryColor;
+    overflow-y: hidden;
+    .historique{
+        height: 0;
+        transition: 1s;
+        &.show{
+            display: inherit;
+            height: $heightHistorique;
+        }
+        div{
+            &.titre{
+                color: $font-color;
+                font-size: $sizeThree;
+            }
+            &.list{
+                height: ($heightHistorique * 80) / 100;
+                padding: 5px;
+                padding-left: 10px;
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column;
+                div{
+                    margin: 3px 0;
+                    P{
+                        font-size: 13px;
+                        cursor: default;
+                        &:hover{
+                            background: $ButtonOne;
+                        }
+                        &:active{
+                            background: $primaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .calcul{
+        height: 100vh - $heightHistorique;
+        position: relative;
+        transition: 1s;
+        &.max{
+            height: 100vh;
+        }
+        .container{
+            &.affichage{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: $heightAffichage;
+                div{
+                    background: $ButtonOne;
+                    display: flex;
+                    justify-content: right;
+                    gap: 5px;
+                    img{
+                        cursor: pointer;
+                    }
+                }
+                button{
+                    height: 10%;
+                    outline: none;
+                    border: none;
+                }
+                input{
+                    background: $ButtonOne;
+                    padding-left: 10px;
+                    caret-color: $font-color;
+
+                    &.expression{
+                        height: 60%;
+                        border: none;   
+                        font-size: $sizeOne;
+                        z-index: 400;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                    &.evaluation{
+                        height: 30%;
+                        border: none;
+                        font-size: $sizeTwoo;
+                        z-index: 400;
+                        position: relative;
+                    }
+                }      
+            }
+            &.container-button{
+                height: 100vh - $heightAffichage;
+                div{
+                    width: 100%;
+                    height: (100vh - $heightAffichage) / 5;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    z-index: 200;
+                    &:nth-child(1){
+                        button{
+                            background: $ButtonSecond;
+                        }   
+                    }
+                    button{
+                        height: 100%;
+                        width: 100%;
+                        background: $ButtonOne;
+                        border: solid 1px $primaryColor;    
+                        font-size: $sizeTwoo;
+                        &:nth-child(4){
+                            background: $ButtonSecond;
+                        }          
+                        &.ac{
+                            background: $ButtonReinitial;
+                        }         
+                        &.equals{
+                            background: $ButtonThree;
+                        }
+                    }
+                    button{        
+                        z-index: 110;            
+                        span{
+                            background-color: rgba(218, 218, 218, 0.726);
+                            position: absolute;
+                            z-index: 90;
+                            border-radius: 5000px;
+                            transform: translate(-50%,-50%);
+                            animation: animationRipplie 400ms linear;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
